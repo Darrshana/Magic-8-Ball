@@ -1,10 +1,12 @@
 
 
+import 'package:flutter/animation.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
 import 'package:audioplayers/audio_cache.dart';
-
+import 'package:animate_do/animate_do.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 void main() => runApp(MaterialApp(
   theme: ThemeData.dark(),
       home: BallPage(),
@@ -16,10 +18,14 @@ class BallPage extends StatelessWidget {
 
         backgroundColor: Colors.indigo[600],
         appBar: AppBar(
-        title: Center(child: Text('Ask Me Anything',
-            style: TextStyle(
+          toolbarHeight: 75.0,
+        title: Center(child: WavyAnimatedTextKit(text:['Ask Me Anything'],
+
+
+            isRepeatingAnimation: true,
+            textStyle: TextStyle(
             fontFamily: 'Lobster',
-            fontSize: 25.0,
+            fontSize: 30.0,
             color: Colors.white,
             fontWeight:FontWeight.bold)),),
     backgroundColor: Colors.grey[850],
@@ -32,27 +38,37 @@ class Ball extends StatefulWidget {
   _BallState createState() => _BallState();
 }
 
-class _BallState extends State<Ball> {
+class _BallState extends State<Ball> with TickerProviderStateMixin{
   int imgNum=1;
+  AnimationController animateController;
+bool animate =false;
   @override
   Widget build(BuildContext context) {
+
     return Container(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child:
               Center(child: FlatButton(
                 onPressed: (){
-                setState(() {
+
+                  setState(() {
                   imgNum=Random().nextInt(5) + 1;
+                  animate=true;
+
                 });
+
                 final player=AudioCache();
                 player.play('note7.wav');
                 },
-                child: Image.asset('images/ball$imgNum.png'),
+
+                child:Image.asset('images/ball$imgNum.png')),
               ),
+
               ),
-        ),
-      );
+        );
+
+
 
   }
 }
