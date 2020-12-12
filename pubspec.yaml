@@ -12,6 +12,9 @@ dependencies:
 
   cupertino_icons: ^0.1.2
   audioplayers: ^0.17.0
+  animate_do: ^1.7.5
+  animated_text_kit: ^3.0.1
+  animatedroute: ^0.0.15+1
 dev_dependencies:
   flutter_test:
     sdk: flutter
