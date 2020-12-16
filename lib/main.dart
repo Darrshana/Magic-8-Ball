@@ -7,6 +7,7 @@ import 'package:magic_8_ball/welcome.dart';
 
 void main() => runApp(MaterialApp(
   theme: ThemeData.dark(),
+  debugShowCheckedModeBanner: false,
 initialRoute: 'welcome',
   routes: {
     'ball':(context)=>BallPage(),
