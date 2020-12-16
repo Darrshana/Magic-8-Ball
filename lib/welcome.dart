@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:animatedroute/animatedroute.dart';
+import 'package:flutter/services.dart';
 import  'package:flutter/src/painting/gradient.dart';
 import 'package:flutter_sinusoidals/flutter_sinusoidals.dart';
 import 'ball.dart';
@@ -9,6 +10,9 @@ class WelcomePage extends StatelessWidget {
   static const String id = 'welcome';
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+     DeviceOrientation.portraitUp,
+   ]);
     return Scaffold(
       backgroundColor: Colors.grey[850],
       body: Welcome(),
