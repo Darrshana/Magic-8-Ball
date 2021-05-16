@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:animatedroute/animatedroute.dart';
 import 'package:flutter/services.dart';
-import  'package:flutter/src/painting/gradient.dart';
 import 'package:flutter_sinusoidals/flutter_sinusoidals.dart';
 import 'ball.dart';
 class WelcomePage extends StatelessWidget {
@@ -25,7 +24,16 @@ class Welcome extends StatefulWidget {
   _WelcomeState createState() => _WelcomeState();
 }
 
-class _WelcomeState extends State<Welcome> with TickerProviderStateMixin{
+class _WelcomeState extends State<Welcome> {
+  @override
+  void initState() {
+    const _colors = [
+      Colors.indigo,
+      Colors.deepPurple,
+      Colors.indigo,
+
+    ];
+  }
   @override
   Widget build(BuildContext context) {
     const _colors = [
@@ -38,7 +46,7 @@ class _WelcomeState extends State<Welcome> with TickerProviderStateMixin{
      const _waves = 2.0;
      const _height = 85.0;
     return Container(
-           margin: const EdgeInsets.only(top: 170.0),
+           margin: const EdgeInsets.only(top: 150.0),
 
 
             child:Center(child:Column(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
@@ -49,6 +57,7 @@ class _WelcomeState extends State<Welcome> with TickerProviderStateMixin{
                 text: ['Magic 8 Ball'],
                 textStyle: TextStyle(fontSize: 70.0, fontFamily: "Lobster"),
                 colors: [
+
                   Colors.purple,
                   Colors.blue,
                   Colors.yellow,

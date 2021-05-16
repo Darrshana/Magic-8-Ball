@@ -35,8 +35,7 @@ class Ball extends StatefulWidget {
 
 class _BallState extends State<Ball> with TickerProviderStateMixin{
   int imgNum=1;
-  AnimationController animateController;
-  bool animate =false;
+
   @override
   Widget build(BuildContext context) {
 
@@ -49,7 +48,7 @@ class _BallState extends State<Ball> with TickerProviderStateMixin{
 
               setState(() {
                 imgNum=Random().nextInt(5) + 1;
-                animate=true;
+
 
               });
 
